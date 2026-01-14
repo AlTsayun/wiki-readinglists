@@ -1,3 +1,5 @@
+importScripts("dist/browser-polyfill.min.js");
+
 const supportedHosts = ["wikipedia.org", "wikivoyage.org"];
 
 const supportedNamespaces = [
@@ -34,22 +36,38 @@ function shouldShowPageAction(url, ns) {
 }
 
 function initializePageAction(tab) {
+  if (!tab || !tab.url) return;
   const url = new URL(tab.url);
+  const action = browser.action || browser.pageAction;
   browser.tabs
     .sendMessage(tab.id, { type: "wikiExtensionGetPageNamespace" })
     .then(res => {
       if (shouldShowPageAction(url, res.ns)) {
-        browser.pageAction.show(tab.id);
+        action.show(tab.id);
       } else {
-        browser.pageAction.hide(tab.id);
+        action.hide(tab.id);
       }
+    })
+    .catch(() => {
+      action.hide(tab.id);
     });
 }
 
-browser.tabs.query({}).then(tabs => {
-  for (let tab of tabs) initializePageAction(tab);
+function initializeAllTabs() {
+  browser.tabs.query({}).then(tabs => {
+    for (let tab of tabs) initializePageAction(tab);
+  });
+}
+
+browser.runtime.onInstalled.addListener(() => initializeAllTabs());
+browser.runtime.onStartup.addListener(() => initializeAllTabs());
+
+browser.tabs.onUpdated.addListener((id, changeInfo, tab) => {
+  if (changeInfo.status === "complete") {
+    initializePageAction(tab);
+  }
 });
 
-browser.tabs.onUpdated.addListener((id, changeInfo, tab) =>
-  initializePageAction(tab)
-);
+browser.tabs.onActivated.addListener(activeInfo => {
+  browser.tabs.get(activeInfo.tabId).then(tab => initializePageAction(tab));
+});

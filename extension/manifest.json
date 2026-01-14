@@ -1,16 +1,18 @@
 {
-  "name": "Wikipedia Reading Lists",
-  "description": "Save Wikipedia articles to read on Wikipedia’s iOS and Android apps",
-  "version": "1.1",
-  "manifest_version": 2,
+  "name": "Wikipedia Reading Lists Enhanced",
+  "description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
+  "version": "2.1",
+  "manifest_version": 3,
   "permissions": [
-    "tabs",
-    "https://*.wikipedia.org/",
-    "https://*.wikivoyage.org/"
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.wikipedia.org/*",
+    "https://*.wikivoyage.org/*"
   ],
   "background": {
-    "scripts": ["dist/browser-polyfill.min.js", "background.js"],
-    "persistent": false
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
   },
   "content_scripts": [
     {
@@ -18,7 +20,7 @@
       "matches": ["https://*.wikipedia.org/*", "https://*.wikivoyage.org/*"]
     }
   ],
-  "page_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icon_Addtolist_48x48.png",
@@ -34,12 +36,12 @@
     "128": "icon_Addtolist_128x128.png"
   },
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+A",
         "mac": "MacCtrl+Shift+A"
       },
-      "description": "Add the current page to the default reading list"
+      "description": "Choose a reading list for the current page"
     }
   }
 }

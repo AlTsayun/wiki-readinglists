@@ -9,6 +9,81 @@ body {
   max-width: 320px;
   min-height: 20px;
 }
+#listIntro {
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+#listSearchInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+}
+#listResults {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.listButton {
+  width: 100%;
+  text-align: left;
+  background: #f8f9fa;
+  border: 1px solid #eaecf0;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.listMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.listSavedIcon {
+  width: 8px;
+  height: 10px;
+  background-image: url(/icon_Savedlist_8x10.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex: 0 0 auto;
+}
+.listButton:hover {
+  background: #fff;
+  border-color: #c8ccd1;
+}
+.listButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.listName {
+  font-weight: 600;
+}
+.listDefaultTag {
+  font-size: 0.8em;
+  color: #54595d;
+  border: 1px solid #c8ccd1;
+  border-radius: 10px;
+  padding: 1px 6px;
+}
+.listSizeTag {
+  font-size: 0.8em;
+  color: #54595d;
+  border: 1px solid #c8ccd1;
+  border-radius: 10px;
+  padding: 1px 6px;
+}
+.status {
+  color: #54595d;
+  font-size: 0.9em;
+  margin-top: 6px;
+}
 #addToListSuccessContainer:before {
   content: "";
   background-image: url(/icon_Addtolist_24x24.svg);
@@ -21,6 +96,9 @@ body {
 #addToListSuccessContainer {
   padding-left: 40px;
   color: #222;
+}
+.successTitle {
+  font-weight: bold;
 }
 #loginButton {
   font-family: Helvetica, Arial, sans-serif;

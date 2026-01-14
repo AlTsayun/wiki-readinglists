@@ -5,6 +5,14 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div id="listSelectionContainer" style="display:none">
+      <p id="listIntro">Choose a reading list</p>
+      <input id="listSearchInput" type="text" placeholder="Search reading lists"/>
+      <div id="listLoading" class="status">Loading reading lists...</div>
+      <div id="listStatus" class="status" style="display:none"></div>
+      <div id="listEmpty" class="status" style="display:none">No lists found.</div>
+      <ul id="listResults"></ul>
+    </div>
     <div id="loginPromptContainer" style="display:none">
       <p id="loginPromptText"></p>
       <button id="loginButton"></button>
