@@ -1,7 +1,7 @@
 {
   "name": "Wikipedia Reading Lists Enhanced",
   "description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
-  "version": "2.1",
+  "version": "1.2.0",
   "manifest_version": 3,
   "permissions": [
     "tabs"
