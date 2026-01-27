@@ -149,9 +149,14 @@ function getAllReadingLists(url, rlcontinue, lists) {
 
 function parseTitleFromUrl(href) {
   const url = new URL(href);
-  return url.searchParams.has("title")
+  const rawTitle = url.searchParams.has("title")
     ? url.searchParams.get("title")
     : url.pathname.replace("/wiki/", "");
+  try {
+    return decodeURIComponent(rawTitle);
+  } catch (err) {
+    return rawTitle;
+  }
 }
 
 function show(id) {

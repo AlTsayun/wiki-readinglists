@@ -1,7 +1,8 @@
 {
   "name": "Wikipedia Reading Lists Enhanced",
   "description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
-  "version": "1.2.0",
+  "short_description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
+  "version": "1.2.1",
   "manifest_version": 3,
   "permissions": [
     "tabs"
@@ -23,15 +24,15 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icon_Addtolist_48x48.png",
-      "32": "icon_Addtolist_48x48.png",
+      "16": "icon_Addtolist_16x16.png",
+      "32": "icon_Addtolist_32x32.png",
       "48": "icon_Addtolist_48x48.png",
       "128": "icon_Addtolist_128x128.png"
     }
   },
   "icons": {
-    "16": "icon_Addtolist_48x48.png",
-    "32": "icon_Addtolist_48x48.png",
+    "16": "icon_Addtolist_16x16.png",
+    "32": "icon_Addtolist_32x32.png",
     "48": "icon_Addtolist_48x48.png",
     "128": "icon_Addtolist_128x128.png"
   },
@@ -43,5 +44,13 @@
       },
       "description": "Choose a reading list for the current page"
     }
+  },
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "webextension-readinglists-enhanced@tunjos.co",
+    "data_collection_permissions": {
+        "required": ["none"]
+      }
   }
+}
 }
