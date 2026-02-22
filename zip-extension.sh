@@ -3,6 +3,7 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 manifest_path="${script_dir}/extension/manifest.json"
+output_path="${script_dir}/target"
 
 if [[ ! -f "${manifest_path}" ]]; then
   echo "manifest.json not found at ${manifest_path}" >&2
@@ -33,8 +34,9 @@ make_zip() {
   fi
 
   local zip_name="${slug}_${browser}_${version}.zip"
-  rm -f "${script_dir}/${zip_name}"
-  (cd "${tmpdir}/extension" && zip -r "${script_dir}/${zip_name}" . > /dev/null)
+  mkdir -p "${output_path}"
+  rm -f "${output_path}/${zip_name}"
+  (cd "${tmpdir}/extension" && zip -r "${output_path}/${zip_name}" . > /dev/null)
   rm -rf "${tmpdir}"
   echo "Created ${zip_name}"
 }
