@@ -1,5 +1,5 @@
 {
-  "name": "Wikipedia Reading Lists Enhanced",
+  "name": "Wiki Reading Lists",
   "description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
   "short_description": "Save Wikipedia articles to read on Wikipedia Web, iOS, and Android apps",
   "version": "1.2.1",
@@ -47,7 +47,7 @@
   },
   "browser_specific_settings": {
   "gecko": {
-    "id": "webextension-readinglists-enhanced@tunjos.co",
+    "id": "webextension-wikireadinglists@al.tsayun",
     "data_collection_permissions": {
         "required": ["none"]
       }
