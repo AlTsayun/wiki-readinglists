@@ -1,0 +1,18 @@
+{
+  "name": "wiki-readinglists-dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:4-24",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [],
+  "remoteUser": "node"
+}
