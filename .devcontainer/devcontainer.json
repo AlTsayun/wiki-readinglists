@@ -1,6 +1,8 @@
 {
   "name": "wiki-readinglists-dev",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:4-24",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
